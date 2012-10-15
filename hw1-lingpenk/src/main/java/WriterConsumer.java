@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import model.GenTag;
 import model.SentenceInfo;
 
 import org.apache.uima.cas.CAS;
@@ -81,13 +82,20 @@ public class WriterConsumer extends CasConsumer_ImplBase {
       SentenceInfo sinfo = (SentenceInfo)it.next();
       SID = sinfo.getSID();
     }
-    try {
-      FileWriter writer = new FileWriter(mOutputFile, true);
-      
-      writer.write(SID+"|"+jcas.getDocumentText() + "\n");
-      writer.close();
-    } catch (IOException e) {
-      e.printStackTrace();
+    
+    FSIterator git = jcas.getAnnotationIndex(GenTag.type).iterator();
+    while (git.hasNext()) {
+      GenTag gt = (GenTag) git.next();
+      int begin = gt.getBegin();
+      int end = gt.getEnd();
+      try {
+        FileWriter writer = new FileWriter(mOutputFile, true);
+
+        writer.write(SID + "|"+ begin+" "+end+"|"+ jcas.getDocumentText() + "\n");
+        writer.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
     /*
     // retreive the filename of the input file from the CAS
