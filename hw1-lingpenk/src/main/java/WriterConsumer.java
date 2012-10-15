@@ -23,8 +23,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import model.SentenceInfo;
+
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
+import org.apache.uima.cas.FSIterator;
 import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
@@ -72,9 +75,16 @@ public class WriterConsumer extends CasConsumer_ImplBase {
     } catch (CASException e) {
       throw new ResourceProcessException(e);
     }
+    FSIterator it = jcas.getAnnotationIndex(SentenceInfo.type).iterator();
+    String SID = null;
+    if (it.hasNext()) {
+      SentenceInfo sinfo = (SentenceInfo)it.next();
+      SID = sinfo.getSID();
+    }
     try {
       FileWriter writer = new FileWriter(mOutputFile, true);
-      writer.write(jcas.getDocumentText() + "\n");
+      
+      writer.write(SID+"|"+jcas.getDocumentText() + "\n");
       writer.close();
     } catch (IOException e) {
       e.printStackTrace();
