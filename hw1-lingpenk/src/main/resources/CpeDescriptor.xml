@@ -8,7 +8,19 @@
         </collectionIterator>
     </collectionReader>
     <casProcessors casPoolSize="3" processingUnitThreadCount="1">
-        <casProcessor deployment="integrated" name="Writer Consumer">
+        <casProcessor deployment="integrated" name="NER Annotator">
+            <descriptor>
+                <import location="NERAnnotator.xml"/>
+            </descriptor>
+            <deploymentParameters/>
+            <errorHandling>
+                <errorRateThreshold action="terminate" value="0/1000"/>
+                <maxConsecutiveRestarts action="terminate" value="30"/>
+                <timeout max="100000" default="-1"/>
+            </errorHandling>
+            <checkpoint batch="10000" time="1000ms"/>
+        </casProcessor>
+        <casProcessor deployment="integrated" name="WriterConsumer">
             <descriptor>
                 <import location="WriterConsumer.xml"/>
             </descriptor>

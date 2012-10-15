@@ -52,7 +52,9 @@ public class WriterConsumer extends CasConsumer_ImplBase {
   File mOutputFile;
   public void initialize() throws ResourceInitializationException {
     mOutputFile = new File((String) getConfigParameterValue(PARAM_OUTPUTFILE));
-    
+    if(mOutputFile.exists()){
+      mOutputFile.delete();
+    }
   }
 
   /**
