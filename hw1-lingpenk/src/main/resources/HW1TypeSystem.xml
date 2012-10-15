@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>HW1TypeSystem</name>
+  <description>Type System Definition for Homework1</description>
+  <version>1.0</version>
+  <vendor>Lingpeng Kong</vendor>
+  <types>
+    <typeDescription>
+      <name>model.GenTag</name>
+      <description>This is used to mark gen tags</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>model.SentenceInfo</name>
+      <description>The info of the sentence</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>SID</name>
+          <description>The ID of the sentence</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

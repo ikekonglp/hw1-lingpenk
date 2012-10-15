@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <implementationName>FileCollectionReader</implementationName>
+  <processingResourceMetaData>
+    <name>File Reader</name>
+    <description>Read the input file using the parameter input file</description>
+    <version>1.0</version>
+    <vendor>Lingpeng Kong</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>InputFile</name>
+        <description>Input file directory</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>InputFile</name>
+        <value>
+          <string>/Users/konglingpeng/git/hw1-lingpenk/hw1-lingpenk/src/main/resources/data/sample.in</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+      <imports>
+        <import name="HW1TypeSystem"/>
+      </imports>
+    </typeSystemDescription>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">model.SentenceInfo</type>
+          <type allAnnotatorFeatures="true">model.GenTag</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+      <outputsNewCASes>true</outputsNewCASes>
+    </operationalProperties>
+  </processingResourceMetaData>
+</collectionReaderDescription>
