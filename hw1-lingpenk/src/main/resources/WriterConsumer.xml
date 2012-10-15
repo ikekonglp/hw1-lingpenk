@@ -3,7 +3,7 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <implementationName>WriterConsumer</implementationName>
   <processingResourceMetaData>
-    <name>Writer Consumer</name>
+    <name>WriterConsumer</name>
     <description>Writes the results to output file</description>
     <version>1.0</version>
     <vendor>Lingpeng Kong</vendor>
