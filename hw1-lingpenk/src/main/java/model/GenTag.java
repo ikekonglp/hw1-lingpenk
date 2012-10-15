@@ -11,8 +11,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** This is used to mark gen tags
- * Updated by JCasGen Sun Oct 14 22:05:44 EDT 2012
- * XML source: /Users/konglingpeng/git/hw1-lingpenk/hw1-lingpenk/src/main/resources/WriterConsumer.xml
+ * Updated by JCasGen Sun Oct 14 22:48:14 EDT 2012
+ * XML source: /Users/konglingpeng/git/hw1-lingpenk/hw1-lingpenk/src/main/resources/FileCollectionReader.xml
  * @generated */
 public class GenTag extends Annotation {
   /** @generated

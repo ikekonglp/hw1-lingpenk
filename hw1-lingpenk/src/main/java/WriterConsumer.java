@@ -20,19 +20,15 @@
 
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
-import org.apache.uima.cas.impl.XmiCasSerializer;
 import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
-import org.apache.uima.util.XMLSerializer;
-import org.xml.sax.SAXException;
 
 /**
  * A simple CAS consumer that writes the CAS to XMI format.

@@ -26,7 +26,7 @@
     </configurationParameterSettings>
     <typeSystemDescription>
       <imports>
-        <import name="HW1TypeSystem"/>
+        <import location="/Users/konglingpeng/git/hw1-lingpenk/hw1-lingpenk/src/main/resources/HW1TypeSystem.xml"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>
