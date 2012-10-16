@@ -14,7 +14,7 @@ import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** The info of the sentence
- * Updated by JCasGen Sun Oct 14 22:48:14 EDT 2012
+ * Updated by JCasGen Tue Oct 16 11:08:57 EDT 2012
  * @generated */
 public class SentenceInfo_Type extends Annotation_Type {
   /** @generated */

@@ -34,8 +34,9 @@
   </analysisEngineMetaData>
   <externalResourceDependencies>
     <externalResourceDependency>
-      <key>GenTagHmmFile</key>
-      <description>The file for LingPipe to do the NER tasks</description>
+      <key>GenModelFile</key>
+      <description>The resource for the gen model file used by the LingPipe</description>
+      <interfaceName>NamedResource</interfaceName>
       <optional>false</optional>
     </externalResourceDependency>
   </externalResourceDependencies>
@@ -45,9 +46,16 @@
         <name>ModelGenTagHmm</name>
         <description>This is the model file for the LingPipe to do NER tasks</description>
         <fileResourceSpecifier>
-          <fileUrl>file:src/main/resources/GenTagHmm</fileUrl>
+          <fileUrl>file:GenTagHmm</fileUrl>
         </fileResourceSpecifier>
+        <implementationName>NamedResource_impl</implementationName>
       </externalResource>
     </externalResources>
+    <externalResourceBindings>
+      <externalResourceBinding>
+        <key>GenModelFile</key>
+        <resourceName>ModelGenTagHmm</resourceName>
+      </externalResourceBinding>
+    </externalResourceBindings>
   </resourceManagerConfiguration>
 </analysisEngineDescription>

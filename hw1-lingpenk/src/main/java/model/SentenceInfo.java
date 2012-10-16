@@ -10,8 +10,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** The info of the sentence
- * Updated by JCasGen Sun Oct 14 22:48:14 EDT 2012
- * XML source: /Users/konglingpeng/git/hw1-lingpenk/hw1-lingpenk/src/main/resources/FileCollectionReader.xml
+ * Updated by JCasGen Tue Oct 16 11:08:57 EDT 2012
+ * XML source: /Users/konglingpeng/git/hw1-lingpenk/hw1-lingpenk/src/main/resources/NERAnnotator.xml
  * @generated */
 public class SentenceInfo extends Annotation {
   /** @generated
