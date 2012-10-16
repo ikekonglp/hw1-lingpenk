@@ -31,11 +31,11 @@ public class NERAnnotator extends JCasAnnotator_ImplBase {
     if (chunker == null) {
       initialize();
     }
+    
     // get document text
     String docText = aJCas.getDocumentText();
 
     Chunking chunking = chunker.chunk(docText);
-    // System.out.println("Chunking=" + chunking);
     for (Chunk ck : chunking.chunkSet()) {
       GenTag annotation = new GenTag(aJCas);
       annotation.setBegin(ck.start());
