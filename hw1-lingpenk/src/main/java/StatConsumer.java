@@ -133,10 +133,10 @@ public class StatConsumer extends CasConsumer_ImplBase {
           error++;
         }
         total++;
-        double percision = (double)correct/(double)total;
+        double precision = (double)correct/(double)total;
         double recall = (double)correct/(double)gset.size();
-        double Fscore = 2.0/(1.0/percision+1.0/recall);
-        writer.write("Current Processed:\t"+total+"\tPecision:\t"+ percision+ "\tRecall:\t"+recall+"\tF-Score:\t"+Fscore+ "\n");
+        double Fscore = 2.0/(1.0/precision+1.0/recall);
+        writer.write("Current Processed:\t"+total+"\tPrecision:\t"+ precision+ "\tRecall:\t"+recall+"\tF-Score:\t"+Fscore+ "\n");
         writer.close();
       } catch (IOException e) {
         e.printStackTrace();
