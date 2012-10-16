@@ -89,47 +89,22 @@ public class WriterConsumer extends CasConsumer_ImplBase {
     while (git.hasNext()) {
       GenTag gt = (GenTag) git.next();
       int begin = gt.getBegin();
+      int rBegin = begin
+              - (jcas.getDocumentText().substring(0, begin).length() - jcas.getDocumentText()
+                      .substring(0, begin).replaceAll(" ", "").length());
       int end = gt.getEnd();
+      int rEnd = end
+              - (jcas.getDocumentText().substring(0, end).length() - jcas.getDocumentText()
+                      .substring(0, end).replaceAll(" ", "").length())-1;
       try {
         FileWriter writer = new FileWriter(mOutputFile, true);
 
-        writer.write(SID + "|"+ begin+" "+end+"|"+ jcas.getDocumentText() + "\n");
+        writer.write(SID + "|"+ rBegin+" "+rEnd+"|"+ jcas.getDocumentText().substring(begin, end) + "\n");
         writer.close();
       } catch (IOException e) {
         e.printStackTrace();
       }
     }
-    /*
-    // retreive the filename of the input file from the CAS
-    FSIterator it = jcas.getAnnotationIndex(SourceDocumentInformation.type).iterator();
-    File outFile = null;
-    if (it.hasNext()) {
-      SourceDocumentInformation fileLoc = (SourceDocumentInformation) it.next();
-      File inFile;
-      try {
-        inFile = new File(new URL(fileLoc.getUri()).getPath());
-        String outFileName = inFile.getName();
-        if (fileLoc.getOffsetInSource() > 0) {
-          outFileName += ("_" + fileLoc.getOffsetInSource());
-        }
-        outFileName += ".xmi";
-        outFile = new File(mOutputDir, outFileName);
-        modelFileName = mOutputDir.getAbsolutePath() + "/" + inFile.getName() + ".ecore";
-      } catch (MalformedURLException e1) {
-        // invalid URL, use default processing below
-      }
-    }
-    if (outFile == null) {
-      outFile = new File(mOutputDir, "doc" + mDocNum++ + ".xmi");     
-    }
-    // serialize XCAS and write to output file
-    try {
-      writeXmi(jcas.getCas(), outFile, modelFileName);
-    } catch (IOException e) {
-      throw new ResourceProcessException(e);
-    } catch (SAXException e) {
-      throw new ResourceProcessException(e);
-    }
-    */
+    
   }
 }

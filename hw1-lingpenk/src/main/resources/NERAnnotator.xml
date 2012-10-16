@@ -32,5 +32,22 @@
       <outputsNewCASes>false</outputsNewCASes>
     </operationalProperties>
   </analysisEngineMetaData>
-  <resourceManagerConfiguration/>
+  <externalResourceDependencies>
+    <externalResourceDependency>
+      <key>GenTagHmmFile</key>
+      <description>The file for LingPipe to do the NER tasks</description>
+      <optional>false</optional>
+    </externalResourceDependency>
+  </externalResourceDependencies>
+  <resourceManagerConfiguration>
+    <externalResources>
+      <externalResource>
+        <name>ModelGenTagHmm</name>
+        <description>This is the model file for the LingPipe to do NER tasks</description>
+        <fileResourceSpecifier>
+          <fileUrl>file:src/main/resources/GenTagHmm</fileUrl>
+        </fileResourceSpecifier>
+      </externalResource>
+    </externalResources>
+  </resourceManagerConfiguration>
 </analysisEngineDescription>

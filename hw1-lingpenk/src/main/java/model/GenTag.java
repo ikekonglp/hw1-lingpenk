@@ -3,10 +3,9 @@
 /* First created by JCasGen Sun Oct 14 20:55:33 EDT 2012 */
 package model;
 
-import org.apache.uima.jcas.JCas; 
+import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
-
 import org.apache.uima.jcas.tcas.Annotation;
 
 

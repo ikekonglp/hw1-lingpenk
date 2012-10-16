@@ -19,26 +19,66 @@
 
 
 
+import java.io.File;
+import java.io.IOException;
+
 import model.GenTag;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.resource.ResourceAccessException;
+
+import com.aliasi.chunk.Chunk;
+import com.aliasi.chunk.Chunker;
+import com.aliasi.chunk.Chunking;
+import com.aliasi.util.AbstractExternalizable;
 
 /**
  * Example annotator that detects room numbers using Java 1.4 regular expressions.
  */
 public class NERAnnotator extends JCasAnnotator_ImplBase {
+  Chunker chunker = null;
+  public void initialize() {
+    File modelFile;
+    try {
+      System.out.println(getContext().getResourceURI("NERModel"));
+      modelFile = new File(getContext().getResourceFilePath("NERModel"));
+      
+    } catch (ResourceAccessException e1) {
+      e1.printStackTrace();
+      return;
+    }
+     try {
+      chunker = (Chunker) AbstractExternalizable.readObject(modelFile);
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
 
+  }
   /**
    * @see JCasAnnotator_ImplBase#process(JCas)
    */
   public void process(JCas aJCas) {
+    if(chunker==null){
+      initialize();
+    }
+    
     // get document text
     String docText = aJCas.getDocumentText();
+    
+    Chunking chunking = chunker.chunk(docText);
+    //System.out.println("Chunking=" + chunking);
+    for(Chunk ck : chunking.chunkSet()){
       GenTag annotation = new GenTag(aJCas);
-      annotation.setBegin(0);
-      annotation.setEnd(1);
+      annotation.setBegin(ck.start());
+      annotation.setEnd(ck.end());
       annotation.addToIndexes();
+    }
+      
   }
 
 }
