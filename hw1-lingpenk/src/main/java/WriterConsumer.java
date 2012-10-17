@@ -35,11 +35,11 @@ import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 
 /**
- * A simple CAS consumer that writes the CAS to XMI format.
+ * A simple CAS consumer that writes the CAS to an output file as we want.
  * <p>
  * This CAS Consumer takes one parameter:
  * <ul>
- * <li><code>OutputDirectory</code> - path to directory into which output files will be written</li>
+ * <li><code>OutputFile</code> - path of the file into which outputs will be written</li>
  * </ul>
  */
 public class WriterConsumer extends CasConsumer_ImplBase {
@@ -49,6 +49,9 @@ public class WriterConsumer extends CasConsumer_ImplBase {
    */
   public static final String PARAM_OUTPUTFILE = "OutputFile";
 
+  /**
+   * Store the output file as an object
+   */
   File mOutputFile;
   public void initialize() throws ResourceInitializationException {
     mOutputFile = new File((String) getConfigParameterValue(PARAM_OUTPUTFILE));
@@ -58,20 +61,17 @@ public class WriterConsumer extends CasConsumer_ImplBase {
   }
 
   /**
-   * Processes the CAS which was populated by the TextAnalysisEngines. <br>
-   * In this case, the CAS is converted to XMI and written into the output file .
+   * Processes the CAS which was populated by the NERAnnotator. <br>
+   * In this case, the CAS is converted to output file as we want.
    * 
    * @param aCAS
-   *          a CAS which has been populated by the TAEs
+   *          a CAS which has been populated by the NERAnnotator
    * 
    * @throws ResourceProcessException
    *           if there is an error in processing the Resource
    * 
-   * @see org.apache.uima.collection.base_cpm.CasObjectProcessor#processCas(org.apache.uima.cas.CAS)
    */
   public void processCas(CAS aCAS) throws ResourceProcessException {
-    String modelFileName = null;
-
     JCas jcas;
     try {
       jcas = aCAS.getJCas();

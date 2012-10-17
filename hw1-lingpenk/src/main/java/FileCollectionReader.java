@@ -32,13 +32,33 @@ public class FileCollectionReader extends CollectionReader_ImplBase {
    */
   public static final String PARAM_INPUTFILE = "InputFile";
 
+  /**
+   * The File Reader used by the collection reader
+   */
   FileReader fr;
+  
+  /**
+   * The Buffer Reader used by the collection reader
+   */
   BufferedReader br;
+  
+  /**
+   * The current sentence number we have reached
+   */
   int mCurrentIndex;
+  
+  /**
+   * The total number of lines
+   */
   int totalLines;
 
+
   /**
-   * @see org.apache.uima.collection.CollectionReader_ImplBase#initialize()
+   * initialize the reader and the buffer
+   * 
+   * @throws ResourceInitializationException
+   *           if initialization fails
+   * 
    */
   public void initialize() throws ResourceInitializationException {
     File inFile = new File(((String) getConfigParameterValue(PARAM_INPUTFILE)).trim());
@@ -79,7 +99,6 @@ public class FileCollectionReader extends CollectionReader_ImplBase {
     
   }
 
-  
   public boolean hasNext() {
     try {
       return br.ready();
@@ -89,7 +108,12 @@ public class FileCollectionReader extends CollectionReader_ImplBase {
   }
 
   /**
-   * @see org.apache.uima.collection.CollectionReader#getNext(org.apache.uima.cas.CAS)
+   * This method break the file into lines, store ID and then give out a cas
+   * 
+   * @throws IOException
+   *           when file read fails
+   * @throws CollectionException
+   *           when get jcas fails
    */
   public void getNext(CAS aCAS) throws IOException, CollectionException {
     JCas jcas;
@@ -98,7 +122,6 @@ public class FileCollectionReader extends CollectionReader_ImplBase {
     } catch (CASException e) {
       throw new CollectionException(e);
     }
-
     
     String line;
     if (br.ready()) {

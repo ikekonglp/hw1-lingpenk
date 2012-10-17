@@ -20,7 +20,7 @@
       <nameValuePair>
         <name>OutputFile</name>
         <value>
-          <string>/Users/konglingpeng/git/hw1-lingpenk/hw1-lingpenk/src/main/resources/data/test.out</string>
+          <string>hw1-lingpenk.out</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

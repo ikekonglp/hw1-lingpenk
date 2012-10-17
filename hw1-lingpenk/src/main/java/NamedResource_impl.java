@@ -30,13 +30,13 @@ import com.aliasi.chunk.Chunker;
 import com.aliasi.util.AbstractExternalizable;
 
 /**
- * 
+ * The implementation of the interface to manage the model file and provide the chunker
  * 
  */
 public class NamedResource_impl implements NamedResource, SharedResourceObject {
   
-  private String fileName;
   private Chunker chunker;
+  
   public void load(DataResource aData) throws ResourceInitializationException {
     try {
       chunker = (Chunker) AbstractExternalizable.readObject(new File(aData.getUri().getPath()));
@@ -47,11 +47,6 @@ public class NamedResource_impl implements NamedResource, SharedResourceObject {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-  }
-
-  
-  public String getFileName() {
-    return fileName;
   }
 
 

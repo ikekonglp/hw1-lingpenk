@@ -10,11 +10,14 @@ import com.aliasi.chunk.Chunker;
 import com.aliasi.chunk.Chunking;
 
 /**
- * Example annotator that detects room numbers using Java 1.4 regular expressions.
+ * The annotator that detects gene names from the sentence.
  */
 public class NERAnnotator extends JCasAnnotator_ImplBase {
   Chunker chunker = null;
 
+  /**
+   * initialize the chunker using the NamedResource
+   */
   public void initialize() {
     try {
       NamedResource nr = (NamedResource) getContext().getResourceObject("GenModelFile");
@@ -25,7 +28,7 @@ public class NERAnnotator extends JCasAnnotator_ImplBase {
   }
 
   /**
-   * @see JCasAnnotator_ImplBase#process(JCas)
+   * annotate on the cas where we have gene names
    */
   public void process(JCas aJCas) {
     if (chunker == null) {
