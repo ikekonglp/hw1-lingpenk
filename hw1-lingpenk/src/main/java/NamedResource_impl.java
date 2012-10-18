@@ -50,7 +50,6 @@ public class NamedResource_impl implements NamedResource, SharedResourceObject {
   }
 
 
-  @Override
   public Chunker getChunker() {
     // TODO Auto-generated method stub
     return chunker;
