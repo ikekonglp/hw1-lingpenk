@@ -1,5 +1,5 @@
 /* First created by JCasGen Sun Oct 14 20:55:33 EDT 2012 */
-package model;
+
 
 import org.apache.uima.cas.FeatureStructure;
 import org.apache.uima.cas.Type;

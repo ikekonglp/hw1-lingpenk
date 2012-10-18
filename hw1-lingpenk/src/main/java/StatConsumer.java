@@ -26,8 +26,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 
-import model.GenTag;
-import model.SentenceInfo;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;

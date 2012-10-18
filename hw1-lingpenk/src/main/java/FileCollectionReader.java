@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
 
-import model.SentenceInfo;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;

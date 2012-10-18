@@ -1,5 +1,4 @@
 
-import model.GenTag;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.jcas.JCas;
