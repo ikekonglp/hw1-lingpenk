@@ -30,18 +30,15 @@ public class SentenceInfo extends Annotation {
 
   /** @generated */
   @Override
-  public int getTypeIndexID() {
-    return typeIndexID;
-  }
-
+  public int getTypeIndexID() {return typeIndexID;}
+ 
   /**
    * Never called. Disable default constructor
    * 
    * @generated
    */
-  protected SentenceInfo() {/* intentionally empty block */
-  }
-
+  protected SentenceInfo() {/* intentionally empty block */}
+    
   /**
    * Internal - constructor used by generator
    * 
@@ -51,12 +48,12 @@ public class SentenceInfo extends Annotation {
     super(addr, type);
     readObject();
   }
-
+  
   /** @generated */
   public SentenceInfo(JCas jcas) {
     super(jcas);
-    readObject();
-  }
+    readObject();   
+  } 
 
   /** @generated */
   public SentenceInfo(JCas jcas, int begin, int end) {
@@ -64,13 +61,10 @@ public class SentenceInfo extends Annotation {
     setBegin(begin);
     setEnd(end);
     readObject();
-  }
+  }   
 
-  /**
-   * <!-- begin-user-doc --> Write your own initialization here <!-- end-user-doc -->
-   * 
-   * @generated modifiable
-   */
+  /** <!-- begin-user-doc --> Write your own initialization here <!-- end-user-doc -->
+  @generated modifiable */
   private void readObject() {/* default - does nothing empty block */
   }
 
@@ -83,19 +77,17 @@ public class SentenceInfo extends Annotation {
    * @generated
    */
   public String getSID() {
-    if (SentenceInfo_Type.featOkTst && ((SentenceInfo_Type) jcasType).casFeat_SID == null)
-      jcasType.jcas.throwFeatMissing("SID", "model.SentenceInfo");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((SentenceInfo_Type) jcasType).casFeatCode_SID);
-  }
-
+    if (SentenceInfo_Type.featOkTst && ((SentenceInfo_Type)jcasType).casFeat_SID == null)
+      jcasType.jcas.throwFeatMissing("SID", "SentenceInfo");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((SentenceInfo_Type)jcasType).casFeatCode_SID);}
+    
   /**
    * setter for SID - sets The ID of the sentence
    * 
    * @generated
    */
   public void setSID(String v) {
-    if (SentenceInfo_Type.featOkTst && ((SentenceInfo_Type) jcasType).casFeat_SID == null)
-      jcasType.jcas.throwFeatMissing("SID", "model.SentenceInfo");
-    jcasType.ll_cas.ll_setStringValue(addr, ((SentenceInfo_Type) jcasType).casFeatCode_SID, v);
+    if (SentenceInfo_Type.featOkTst && ((SentenceInfo_Type)jcasType).casFeat_SID == null)
+      jcasType.jcas.throwFeatMissing("SID", "SentenceInfo");
+    jcasType.ll_cas.ll_setStringValue(addr, ((SentenceInfo_Type)jcasType).casFeatCode_SID, v);}    
   }
-}

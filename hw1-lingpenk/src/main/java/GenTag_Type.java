@@ -18,26 +18,23 @@ import org.apache.uima.jcas.tcas.Annotation_Type;
 public class GenTag_Type extends Annotation_Type {
   /** @generated */
   @Override
-  protected FSGenerator getFSGenerator() {
-    return fsGenerator;
-  }
-
+  protected FSGenerator getFSGenerator() {return fsGenerator;}
   /** @generated */
-  private final FSGenerator fsGenerator = new FSGenerator() {
-    public FeatureStructure createFS(int addr, CASImpl cas) {
-      if (GenTag_Type.this.useExistingInstance) {
-        // Return eq fs instance if already created
-        FeatureStructure fs = GenTag_Type.this.jcas.getJfsFromCaddr(addr);
-        if (null == fs) {
-          fs = new GenTag(addr, GenTag_Type.this);
-          GenTag_Type.this.jcas.putJfsFromCaddr(addr, fs);
-          return fs;
-        }
-        return fs;
-      } else
-        return new GenTag(addr, GenTag_Type.this);
-    }
-  };
+  private final FSGenerator fsGenerator = 
+    new FSGenerator() {
+      public FeatureStructure createFS(int addr, CASImpl cas) {
+  			 if (GenTag_Type.this.useExistingInstance) {
+  			   // Return eq fs instance if already created
+  		     FeatureStructure fs = GenTag_Type.this.jcas.getJfsFromCaddr(addr);
+  		     if (null == fs) {
+  		       fs = new GenTag(addr, GenTag_Type.this);
+  			   GenTag_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  			   return fs;
+  		     }
+  		     return fs;
+        } else return new GenTag(addr, GenTag_Type.this);
+  	  }
+    };
 
   /** @generated */
   @SuppressWarnings("hiding")
@@ -48,7 +45,7 @@ public class GenTag_Type extends Annotation_Type {
    * @modifiable
    */
   @SuppressWarnings("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("model.GenTag");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("GenTag");
 
   /**
    * initialize variables to correspond with Cas Type and Features
@@ -57,7 +54,7 @@ public class GenTag_Type extends Annotation_Type {
    */
   public GenTag_Type(JCas jcas, Type casType) {
     super(jcas, casType);
-    casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
+    casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
   }
 }

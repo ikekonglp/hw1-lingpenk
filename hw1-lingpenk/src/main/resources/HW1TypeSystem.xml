@@ -6,12 +6,12 @@
   <vendor>Lingpeng Kong</vendor>
   <types>
     <typeDescription>
-      <name>model.GenTag</name>
+      <name>GenTag</name>
       <description>This is used to mark gen tags</description>
       <supertypeName>uima.tcas.Annotation</supertypeName>
     </typeDescription>
     <typeDescription>
-      <name>model.SentenceInfo</name>
+      <name>SentenceInfo</name>
       <description>The info of the sentence</description>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>

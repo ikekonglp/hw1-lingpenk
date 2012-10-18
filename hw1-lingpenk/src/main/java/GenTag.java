@@ -30,18 +30,15 @@ public class GenTag extends Annotation {
 
   /** @generated */
   @Override
-  public int getTypeIndexID() {
-    return typeIndexID;
-  }
-
+  public int getTypeIndexID() {return typeIndexID;}
+ 
   /**
    * Never called. Disable default constructor
    * 
    * @generated
    */
-  protected GenTag() {/* intentionally empty block */
-  }
-
+  protected GenTag() {/* intentionally empty block */}
+    
   /**
    * Internal - constructor used by generator
    * 
@@ -51,12 +48,12 @@ public class GenTag extends Annotation {
     super(addr, type);
     readObject();
   }
-
+  
   /** @generated */
   public GenTag(JCas jcas) {
     super(jcas);
-    readObject();
-  }
+    readObject();   
+  } 
 
   /** @generated */
   public GenTag(JCas jcas, int begin, int end) {
@@ -64,13 +61,10 @@ public class GenTag extends Annotation {
     setBegin(begin);
     setEnd(end);
     readObject();
-  }
+  }   
 
-  /**
-   * <!-- begin-user-doc --> Write your own initialization here <!-- end-user-doc -->
-   * 
-   * @generated modifiable
-   */
+  /** <!-- begin-user-doc --> Write your own initialization here <!-- end-user-doc -->
+  @generated modifiable */
   private void readObject() {/* default - does nothing empty block */
   }
 
